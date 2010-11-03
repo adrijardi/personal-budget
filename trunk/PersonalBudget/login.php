@@ -1,4 +1,6 @@
 <?php
+@include 'config.php';
+
 if(isset ($_REQUEST["email"]) && isset ($_REQUEST["password"])){
    switch ($_REQUEST["email"]) {
       case "adrijardi@gmail.com":
