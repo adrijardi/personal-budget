@@ -1,0 +1,27 @@
+*{
+   margin: 0;
+   padding: 0;
+}
+
+html{
+   background-color: #CCCCCC;
+}
+
+body{
+   width: 700px;
+   margin: 0 auto;
+   background-color:#FFF;
+   padding: 10px;
+}
+
+article{
+   width: auto;
+   
+}
+
+fieldset{
+   padding: 5px;
+   width: 300px;
+   margin: 0 auto;
+}
+
