@@ -18,5 +18,9 @@ function createUser($login, $email, $name, $surename, $password, $conn){
 	mysql_query("INSERT INTO users (login, email, name, surename, password) VALUES(
    	   '".$login."','".$email."','".$name."','".$surename."','".$password."')", $conn) or die(mysql_error());
 }
+
+function login($login, $password){
+   
+}
    
 ?>

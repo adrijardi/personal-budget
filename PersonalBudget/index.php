@@ -11,6 +11,11 @@
     </header>
     <article>
        <p>Your personal budget!</p>
+       <?php
+       if($_POST["login"] == "invalid"){
+          echo "Invalid login";
+       }
+       ?>
        <form action="login.php" method="POST">
           <fieldset>
              <legend>Access to your account:</legend>
