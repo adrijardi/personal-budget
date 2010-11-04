@@ -1,36 +1,16 @@
 <?php
 @include_once 'config.php';
-@include_once 'DBConnection';
+@include_once 'DBConnection.php';
 
 if(isset ($_REQUEST["register"])){
-   
-   $fail = false;
-   if(empty($_REQUEST["login"])){
-      $fail = true;
-      $errorMsg[0] = "login not specified";
-   }
-   if(empty($_REQUEST["name"])){
-      $fail = true;
-      $errorMsg[count($errorMsg)] = "Name not specified";
-   }
-   if(empty ($_REQUEST["lastName"])){
-      $fail = true;
-      $errorMsg[count($errorMsg)] = "Last name not specified";
-   }
-   if(empty ($_REQUEST["email"])){
-      $fail = true;
-      $errorMsg[count($errorMsg)] = "Email not specified";
-   }
-   if(empty ($_REQUEST["password"])){
-      $fail = true;
-      $errorMsg[count($errorMsg)] = "Password not specified";
-   }
-   
-   if(!$fail){
-   	  getConnection();
-   	  if(createUser($_REQUEST["login"], $_REQUEST["email"], $_REQUEST["name"], $_REQUEST["lastName"], $_REQUEST["password"])){
-   	  	 header("Location: index.php");
-   	  }
+   $errorMsg = validateCreateUserData($_REQUEST["login"], $_REQUEST["email"], $_REQUEST["name"],
+   	   $_REQUEST["lastName"], $_REQUEST["password"]);
+   if(count($errorMsg)==0){
+      $conn = mysql_connect($dbHost, $dbUser, $dbPass) or die ('Error connecting to mysql');
+	  mysql_select_db($dbName, $conn);
+   	  createUser($_REQUEST["login"], $_REQUEST["email"], $_REQUEST["name"],
+   	   $_REQUEST["lastName"], $_REQUEST["password"], $conn);
+   	  header("Location: index.php");
    }
 }
 
