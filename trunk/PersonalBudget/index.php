@@ -19,7 +19,7 @@
        <form action="login.php" method="POST">
           <fieldset>
              <legend>Access to your account:</legend>
-             <p><label>Email: <input type="text" name="email"/></label></p>
+             <p><label>User: <input type="text" name="user"/></label></p>
              <p><label>Password: <input type="password" name="password"/></label></p>
              <p><button>Login</button></p>
           </fieldset>
