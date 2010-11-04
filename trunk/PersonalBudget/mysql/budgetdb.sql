@@ -1,0 +1,35 @@
+CREATE DATABASE IF NOT EXISTS  budget_db;
+
+/* USER TABLE */
+DROP TABLE IF EXISTS users;
+CREATE TABLE IF NOT EXISTS users (
+  login VARCHAR(20) NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  name VARCHAR(20) NOT NULL,
+  surename VARCHAR(20) NOT NULL,
+  password VARCHAR(32) NOT NULL,
+  PRIMARY KEY (login)
+);
+
+/* BUDGET TABLE */
+DROP TABLE IF EXISTS budgets;
+CREATE TABLE IF NOT EXISTS budgets (
+  name VARCHAR(20) NOT NULL,
+  luser VARCHAR(20) NOT NULL,
+  ammount INTEGER NOT NULL DEFAULT 0,
+  FOREIGN KEY (luser) REFERENCES users(login),
+  PRIMARY KEY (name, luser)
+);
+
+/* TRANSACTIONS TABLE */
+DROP TABLE IF EXISTS transactions;
+CREATE TABLE IF NOT EXISTS transactions(
+  id INT NOT NULL AUTO_INCREMENT,
+  bname VARCHAR(20) NOT NULL,
+  luser VARCHAR(20) NOT NULL,
+  name VARCHAR(20) NOT NULL,
+  ammount INTEGER,
+  FOREIGN KEY (bname) REFERENCES budgets(name),
+  FOREIGN KEY (luser) REFERENCES users(login),
+  PRIMARY KEY (id, bname, luser)
+);
