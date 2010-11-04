@@ -1,5 +1,4 @@
 <?php
-
 function validateCreateUserData($login, $email, $name, $surename, $password){
    if(empty($login))
       $errorMsg[0] = "Login not specified";
@@ -23,5 +22,4 @@ function login($login, $password, $conn){
 	$result = mysql_query("SELECT password FROM users WHERE login = '".$login."'");
 	return ($password == result);	
 }
-   
 ?>
