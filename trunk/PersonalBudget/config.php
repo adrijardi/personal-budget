@@ -5,4 +5,5 @@ $dbUser = 'budget';
 $dbPass = 'kbudget32';
 $dbName = 'budget_db';
    
+   $cookieName = 'PersonalBudget';
 ?>
