@@ -10,7 +10,7 @@ and open the template in the editor.
    </head>
    <body>
       <?php
-      // put your code here
+      echo "estas en main<br \>"
       ?>
    </body>
 </html>
