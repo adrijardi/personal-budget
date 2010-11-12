@@ -1,6 +1,6 @@
 <?php
 
-function validateCreateUserData($login, $email, $name, $surename, $password){
+function validateCreateUserData($login, $email, $name, $surename, $password) {
    if(empty($login))
       $errorMsg[0] = "Login not specified";
    if(empty($name))
@@ -14,15 +14,26 @@ function validateCreateUserData($login, $email, $name, $surename, $password){
    return $errorMsg;
 }
 
-function createUser($login, $email, $name, $surename, $password, $conn){
+function createUser($login, $email, $name, $surename, $password, $conn) {
 	mysql_query("INSERT INTO users (login, email, name, surename, password) VALUES(
    	   '".$login."','".$email."','".$name."','".$surename."','".$password."')", $conn) or die(mysql_error());
 }
 
-function login($login, $password, $conn){
+function login($login, $password, $conn) {
    $result = mysql_query("SELECT password FROM users WHERE login = '".$login."'", $conn) or die(mysql_error());
    $row = mysql_fetch_array($result) or die(mysql_error());
    return strcmp($password, $row['password']) == 0;
+}
+
+function getBudgetNames($user, $conn) {
+   $result = mysql_query("SELECT name FROM budgets WHERE luser = '".$user."'", $conn) or die(mysql_error());
+   
+   $index = 0;
+   while($row = mysql_fetch_array($result)) {
+      $ret[$index++] = $row['name'];
+   }
+   
+   return $ret;
 }
 
 ?>

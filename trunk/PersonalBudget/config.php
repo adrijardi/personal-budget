@@ -1,9 +1,9 @@
 <?php
    /* DB configuration*/
-	$dbHost = '192.168.1.234';
+	$dbHost = 'localhost';
 	$dbUser = 'budget';
 	$dbPass = 'kbudget32';
 	$dbName = 'budget_db';
    /* Cookies */
-    $cookieName = 'PersonalBudget';
+    $userCookie = 'User';
 ?>
