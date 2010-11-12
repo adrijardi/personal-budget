@@ -10,7 +10,7 @@ $budgets = getBudgetNames($user,$conn);
 
 ?>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -23,7 +23,7 @@ $budgets = getBudgetNames($user,$conn);
        </header>
       <article>
          <?php
-         echo "estas en main<br \>";
+         echo "estas en main <strong>".$user."</strong>.<br \>";
          echo "You have ".count($budgets)." budgets";
          
          echo "<ul>";
