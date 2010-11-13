@@ -32,6 +32,7 @@ $transactions = getBudgetTransactions($user, $budget, $conn);
          foreach ($budgets as $budget) {
             echo "<li><a href=budget.php?budget=".$budget.">".$budget."</li>";
          }
+         echo "</ul>";
          
          echo "estas en budget <strong>".$user."</strong>.<br />";
          echo "The budget".$budget." have a total of ".$totalAmmount."<br />";
