@@ -60,7 +60,8 @@ function createNewBudget($user, $budgetName, $conn) {
 }
 
 function createNewTransaction($user, $budgetName, $transName, $ammount, $conn) {
-   return mysql_query("INSERT into transactions (bname, luser, name, ammount) VALUES ('".$budgetName."' , '".$user."' , '".$transName."' , '".$ammount."')", $conn);
+   //return mysql_query("INSERT into transactions (bname, luser, name, ammount) VALUES ('".$budgetName."' , '".$user."' , '".$transName."' , ".$ammount.")", $conn);
+   return mysql_query("CALL addTransaction( '$user', '$budgetName', '$transName', $ammount)") or die(mysql_error());
 }
 
 ?>

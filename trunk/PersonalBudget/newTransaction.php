@@ -9,7 +9,7 @@ if(isset ($_REQUEST["budgetName"]) && isset ($_REQUEST["transactionAmmount"]) &&
    $param = "?budget=".$_REQUEST["budgetName"];
    
    if(!createNewTransaction($_COOKIE[$userCookie], $_REQUEST["budgetName"], $_REQUEST["transactionName"], $_REQUEST["transactionAmmount"], $conn))
-      $param += "&error=2";
+      $param = $param."&error=2";
    mysql_close($conn);
    
    header("HTTP/1.1 200 Ok");
