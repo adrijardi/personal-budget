@@ -55,4 +55,8 @@ function getBudgetTransactions($user, $budgetName, $conn) {
    return $ret;
 }
 
+function createNewBudget($user, $budgetName, $conn) {
+   return mysql_query("INSERT into budgets (name, luser) VALUES ('".$budgetName."' , '".$user."')", $conn);
+}
+
 ?>

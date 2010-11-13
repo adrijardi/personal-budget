@@ -28,11 +28,27 @@ $budgets = getBudgetNames($user,$conn);
          
          echo "<ul id='listBudgets'>";
          foreach ($budgets as $budget) {
-            echo "<li><a href=budget.php?budget=".$budget.">".$budget."</li>";
+            echo "<li><a class='budget' href=budget.php?budget=".$budget.">".$budget."</a></li>";
          }
          
          echo "</ul>";
+         
          ?>
+         <?php
+         if( isset($_REQUEST['error'])){
+            echo "<ul id='msgErrors'><li>";
+            switch($_REQUEST['error']){
+               case 1:
+                  echo $errorCreateBudget;
+            }
+            echo "</li></ul>";
+         }
+         ?>
+         <form action="newBudget" method="POST">
+            <legend>Create new budget:</legend>
+            <p><label><input type="text" name="budgetName" /></label></p>
+            <p><button>Create</button></p>
+         </form>
       </article>
    
       <footer>
