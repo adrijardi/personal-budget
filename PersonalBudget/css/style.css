@@ -31,10 +31,31 @@ fieldset {
    list-style: none;
    
 }
-#listBudgets li a {
-   display: block;
-   width: 120px;
-   height: 40px;
-   background-image: url("img/folder.png");
+#listBudgets li {
+   display: inline;
+   list-style-type: none;
+}
+#listBudgets li a.budget {
+   display: inline-block;
+   width: 88px;
+   height: 43px;
+   background-image: url("../img/folder.png");
    background-repeat: no-repeat;
+   color: #fff;
+   text-align: center;
+   
+}
+
+#transactionTable {
+   width: 400px;
+   border: 1px solid #AAA;
+}
+#transactionTable td {
+   border: 1px dotted #AAA;
+}
+
+#msgErrors {
+   background-color: #ffa7a7;
+   border: 1px dotted #f00;
+   
 }

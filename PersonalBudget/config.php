@@ -6,4 +6,8 @@
 	$dbName = 'budget_db';
    /* Cookies */
     $userCookie = 'User';
+    
+    $errorCreateBudget = 'The budget cannot be created';
+    
+    
 ?>

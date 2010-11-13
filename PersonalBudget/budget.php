@@ -30,20 +30,26 @@ $transactions = getBudgetTransactions($user, $budget, $conn);
          
          echo "<ul id='listBudgets'>";
          foreach ($budgets as $budget) {
-            echo "<li><a href=budget.php?budget=".$budget.">".$budget."</li>";
+            echo "<li><a class='budget' href='budget.php?budget=".$budget."'>".$budget."</a></li>";
          }
+         echo "<li><a class='stdFolder' href='main.php'>Home</a></li>";
          echo "</ul>";
          
          echo "estas en budget <strong>".$user."</strong>.<br />";
-         echo "The budget".$budget." have a total of ".$totalAmmount."<br />";
+         echo "The budget ".$budget." have a total of ".$totalAmmount."<br />";
          
-         echo "Transactions:<br />";
-         echo "<table summary='Data of the transactions for this budget'><caption>Data of the transactions for this budget</caption><tr><th>id</th><th>name</th><th>ammount</th></tr>";
-         foreach ($transactions as $trans) {
-            echo "<tr><td>".$trans['id']."</td><td>".$trans['name']."</td><td>".$trans['ammount']."</td></tr>";
+         if(count($transactions) > 0) {
+         
+            echo "Transactions:<br />";
+            echo "<table id='transactionTable' summary='Data of the transactions for this budget'><caption>Data of the transactions for this budget</caption><tr><th>id</th><th>name</th><th>ammount</th></tr>";
+            foreach ($transactions as $trans) {
+               echo "<tr><td>".$trans['id']."</td><td>".$trans['name']."</td><td>".$trans['ammount']."</td></tr>";
+            }
+
+            echo "</table>";
+         } else {
+            echo "This budget contains no transactions";  
          }
-         
-         echo "</table>";
          ?>
       </article>
    
