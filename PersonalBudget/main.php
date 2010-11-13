@@ -30,11 +30,10 @@ $budgets = getBudgetNames($user,$conn);
          foreach ($budgets as $budget) {
             echo "<li><a class='budget' href=budget.php?budget=".$budget.">".$budget."</a></li>";
          }
-         
+         echo "<li><a class='stdFolder' href='logout.php'>Logout</a></li>";
          echo "</ul>";
          
-         ?>
-         <?php
+         // Show form errors
          if( isset($_REQUEST['error'])){
             echo "<ul id='msgErrors'><li>";
             switch($_REQUEST['error']){
@@ -45,9 +44,11 @@ $budgets = getBudgetNames($user,$conn);
          }
          ?>
          <form action="newBudget" method="POST">
-            <legend>Create new budget:</legend>
-            <p><label><input type="text" name="budgetName" /></label></p>
-            <p><button>Create</button></p>
+            <fieldset>
+               <legend>Create new budget:</legend>
+               <p><label>Name: <input type="text" name="budgetName" /></label></p>
+               <p><button>Create</button></p>
+            </fieldset>
          </form>
       </article>
    

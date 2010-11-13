@@ -5,12 +5,12 @@
 $conn = mysql_connect($dbHost, $dbUser, $dbPass) or die ('Error connecting to mysql');
 mysql_select_db($dbName, $conn);
 $user = $_COOKIE[$userCookie];
-$budget = $_REQUEST["budget"];
+$selectedBudget = $_REQUEST["budget"];
 
 $budgets = getBudgetNames($user,$conn);
 
-$totalAmmount = getBudgetAmmount($user, $budget, $conn);
-$transactions = getBudgetTransactions($user, $budget, $conn);
+$totalAmmount = getBudgetAmmount($user, $selectedBudget, $conn);
+$transactions = getBudgetTransactions($user, $selectedBudget, $conn);
 
 ?>
 
@@ -33,10 +33,11 @@ $transactions = getBudgetTransactions($user, $budget, $conn);
             echo "<li><a class='budget' href='budget.php?budget=".$budget."'>".$budget."</a></li>";
          }
          echo "<li><a class='stdFolder' href='main.php'>Home</a></li>";
+         echo "<li><a class='stdFolder' href='logout.php'>Logout</a></li>";
          echo "</ul>";
          
          echo "estas en budget <strong>".$user."</strong>.<br />";
-         echo "The budget ".$budget." have a total of ".$totalAmmount."<br />";
+         echo "The budget ".$selectedBudget." have a total of ".$totalAmmount."<br />";
          
          if(count($transactions) > 0) {
          
@@ -50,7 +51,27 @@ $transactions = getBudgetTransactions($user, $budget, $conn);
          } else {
             echo "This budget contains no transactions";  
          }
+         
+         // Show form errors
+         if( isset($_REQUEST['error'])){
+            echo "<ul id='msgErrors'><li>";
+            switch($_REQUEST['error']){
+               case 2:
+                  echo $errorCreateTransaction;
+            }
+            echo "</li></ul>";
+         }
          ?>
+         
+         <form action="newTransaction" method="POST">
+            <fieldset>
+               <legend>Create new transaction:</legend>
+               <p><label>Name: <input type="text" name="transactionName" /></label></p>
+               <p><label>Ammount: <input type="text" name="transactionAmmount" /></label></p>
+               <input type="hidden" name="budgetName" value="<?php echo $selectedBudget;?>"/>
+               <p><button>Create</button></p>
+            </fieldset>
+         </form>
       </article>
    
       <footer>
