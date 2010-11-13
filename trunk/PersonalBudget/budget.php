@@ -5,8 +5,12 @@
 $conn = mysql_connect($dbHost, $dbUser, $dbPass) or die ('Error connecting to mysql');
 mysql_select_db($dbName, $conn);
 $user = $_COOKIE[$userCookie];
+$budget = $_REQUEST["budget"];
 
 $budgets = getBudgetNames($user,$conn);
+
+$totalAmmount = getBudgetAmmount($user, $budget, $conn);
+$transactions = getBudgetTransactions($user, $budget, $conn);
 
 ?>
 
@@ -23,15 +27,22 @@ $budgets = getBudgetNames($user,$conn);
        </header>
       <article>
          <?php
-         echo "estas en main <strong>".$user."</strong>.<br />";
-         echo "You have ".count($budgets)." budgets";
          
          echo "<ul id='listBudgets'>";
          foreach ($budgets as $budget) {
             echo "<li><a href=budget.php?budget=".$budget.">".$budget."</li>";
          }
          
-         echo "</ul>";
+         echo "estas en budget <strong>".$user."</strong>.<br />";
+         echo "The budget".$budget." have a total of ".$totalAmmount."<br />";
+         
+         echo "Transactions:<br />";
+         echo "<table summary='Data of the transactions for this budget'><caption>Data of the transactions for this budget</caption><tr><th>id</th><th>name</th><th>ammount</th></tr>";
+         foreach ($transactions as $trans) {
+            echo "<tr><td>".$trans['id']."</td><td>".$trans['name']."</td><td>".$trans['ammount']."</td></tr>";
+         }
+         
+         echo "</table>";
          ?>
       </article>
    

@@ -36,4 +36,23 @@ function getBudgetNames($user, $conn) {
    return $ret;
 }
 
+function getBudgetAmmount($user, $budgetName, $conn) {
+   $result = mysql_query("SELECT ammount FROM budgets WHERE luser = '".$user."' AND name = '".$budgetName."'", $conn) or die(mysql_error());
+   $row = mysql_fetch_array($result) or die(mysql_error());
+   return $row['ammount'];
+}
+
+function getBudgetTransactions($user, $budgetName, $conn) {
+   $result = mysql_query("SELECT id, name, ammount FROM transactions WHERE luser = '".$user."' AND bname = '".$budgetName."'", $conn) or die(mysql_error());
+   
+   $index = 0;
+   while($row = mysql_fetch_array($result)) {
+      $ret[$index]['id'] = $row['id'];
+      $ret[$index]['name'] = $row['name'];
+      $ret[$index++]['ammount'] = $row['ammount'];
+   }
+   
+   return $ret;
+}
+
 ?>
