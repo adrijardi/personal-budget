@@ -1,27 +1,40 @@
-*{
+* {
    margin: 0;
    padding: 0;
 }
 
-html{
+html {
    background-color: #CCCCCC;
 }
 
-body{
+body {
    width: 700px;
    margin: 0 auto;
    background-color:#FFF;
    padding: 10px;
 }
 
-article{
+article {
    width: auto;
    
 }
 
-fieldset{
+fieldset {
    padding: 5px;
    width: 300px;
    margin: 0 auto;
 }
 
+#listBudgets {
+   margin-left: 0;
+   padding-left: 0;
+   list-style: none;
+   
+}
+#listBudgets li a {
+   display: block;
+   width: 120px;
+   height: 40px;
+   background-image: url("img/folder.png");
+   background-repeat: no-repeat;
+}
