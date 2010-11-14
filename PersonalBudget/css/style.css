@@ -1,22 +1,31 @@
+/* Makeshift CSS Reset */  
 * {
    margin: 0;
    padding: 0;
 }
+  
+/* Tell the browser to render HTML 5 elements as block */  
+ header, footer, aside, nav, article {  
+     display: block;  
+}  
 
 html {
-   background-color: #CCCCCC;
+   background-color: #fff;
 }
 
 body {
-   width: 700px;
-   margin: 0 auto;
-   background-color:#FFF;
-   padding: 10px;
+   width: 100%;
+   background-color: #FFF;
+}
+
+header{
+	width: 100%;
+	height: 78px;
+   background-image: url("../images/gradientfromtop.gif");
 }
 
 article {
    width: auto;
-   
 }
 
 fieldset {
@@ -29,7 +38,6 @@ fieldset {
    margin-left: 0;
    padding-left: 0;
    list-style: none;
-   
 }
 #listBudgets li {
    display: inline;
@@ -43,7 +51,6 @@ fieldset {
    background-repeat: no-repeat;
    color: #fff;
    text-align: center;
-   
 }
 
 #transactionTable {
