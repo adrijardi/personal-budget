@@ -18,9 +18,7 @@ $budgets = getBudgetNames($user,$conn);
       <link rel="stylesheet" type="text/css" href="css/style.css"/>
    </head>
    <body>
-      <header>
-       header
-       </header>
+      <?php require 'header.php';?>
       <article>
          <?php
          echo "estas en main <strong>".$user."</strong>.<br />";
@@ -51,9 +49,6 @@ $budgets = getBudgetNames($user,$conn);
             </fieldset>
          </form>
       </article>
-   
-      <footer>
-         <p>Created by: Stigma Soft 2010</p>
-      </footer>
+      <?php require 'footer.php';?>
    </body>
 </html>

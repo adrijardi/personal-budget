@@ -7,7 +7,6 @@
    /* Cookies */
     $cookieUser = 'user';
     $cookieBudget = 'budget';
-    $userCookie = 'User';
     
     $errorCreateBudget = 'The budget cannot be created';
     $errorCreateTransaction = 'The transaction cannot be created';
