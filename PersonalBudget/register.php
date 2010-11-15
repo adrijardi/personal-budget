@@ -51,13 +51,13 @@ if(isset ($_REQUEST["register"])){
                   if(loginState == null || loginState != "short"){
                      loginState = "short";
                      loginMsg = "Login too short";
-                     $("#loginMsg").fadeOut("slow", fadeInLogin);
+                     fadeLogin();
                   }
                } else if( $("#login").val().length >= 20 ) {
                   if(loginState == null || loginState != "long"){
                      loginState = "long";
                      loginMsg = "Login too long";
-                     $("#loginMsg").fadeOut("slow", fadeInLogin);
+                     fadeLogin();
                   }
                } else {
                 
@@ -67,13 +67,13 @@ if(isset ($_REQUEST["register"])){
                         if(loginState == null || loginState != "valid"){
                            loginState = "valid";
                            loginMsg = "Ok";
-                           $("#loginMsg").fadeOut("slow", fadeInLogin);
+                           fadeLogin();
                         }
                      } else {
                         if(loginState == null || loginState != "unvalid"){
                            loginState = "unvalid";
                            loginMsg = "Login not available";
-                           $("#loginMsg").fadeOut("slow", fadeInLogin);
+                           fadeLogin();
                         }
                      }
 
@@ -85,9 +85,11 @@ if(isset ($_REQUEST["register"])){
      
         });
         
-        function fadeInLogin() {
-           $("#loginMsg").text(loginMsg);
-           $("#loginMsg").fadeIn("slow");
+        function fadeLogin() {
+           $("#loginMsg").fadeOut("slow", function(){
+              $("#loginMsg").text(loginMsg);
+              $("#loginMsg").fadeIn("slow");
+           });
         }
    
      
