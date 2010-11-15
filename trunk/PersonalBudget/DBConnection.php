@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(E_ALL);
+
 /* DB configuration*/
 /*$dbHost = '192.168.1.234';
 $dbUser = 'budget';
@@ -65,9 +67,16 @@ function createNewBudget($user, $budgetName, $conn) {
    return mysql_query("INSERT into budgets (name, luser) VALUES ('".$budgetName."' , '".$user."')", $conn);
 }
 
-function createNewTransaction($user, $budgetName, $transName, $ammount, $conn) {
-   //return mysql_query("INSERT into transactions (bname, luser, name, ammount) VALUES ('".$budgetName."' , '".$user."' , '".$transName."' , ".$ammount.")", $conn);
+/*function createNewTransaction($user, $budgetName, $transName, $ammount, $conn) {
    return mysql_query("CALL addTransaction( '$user', '$budgetName', '$transName', $ammount)") or die(mysql_error());
-}
+}*/
 
+
+
+
+
+function existLogin($login, $conn) {
+   $result = mysql_query("SELECT count(login) FROM users WHERE login = '".$login."'", $conn);
+   return mysql_result($result, 0);
+}
 ?>

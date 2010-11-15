@@ -30,7 +30,7 @@ article {
 
 fieldset {
    padding: 5px;
-   width: 300px;
+   width: 400px;
    margin: 0 auto;
 }
 
@@ -43,7 +43,7 @@ fieldset {
    display: inline;
    list-style-type: none;
 }
-#listBudgets li a,span {
+#listBudgets li a, #listBudgets li span {
    display: inline-block;
    width: 88px;
    height: 43px;

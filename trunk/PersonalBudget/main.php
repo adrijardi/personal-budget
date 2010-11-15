@@ -8,6 +8,8 @@ $user = $_COOKIE[$userCookie];
 
 $budgets = getBudgetNames($user,$conn);
 
+mysql_close($conn);
+
 ?>
 
 <!DOCTYPE HTML>
