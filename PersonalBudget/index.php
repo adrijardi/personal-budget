@@ -9,16 +9,7 @@
 	  <header>  
          <h1>Page title</h1>  
       </header>  
-      <nav>  
-         <!-- Navigation -->  
-         <ul>  
-            <li><a href="#">Blog</a></li>  
-            <li><a href="#">About</a></li>  
-            <li><a href="#">Archives</a></li>  
-            <li><a href="#">Contact</a></li>  
-            <li class="subscribe"><a href="#">Subscribe via. RSS</a></li>  
-         </ul>  
-      </nav>  
+      <?php require 'navigation.php';?>
       <section id="intro">  
          <!-- Introduction -->
          <p>Your personal budget!</p>

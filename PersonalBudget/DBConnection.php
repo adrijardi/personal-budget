@@ -1,10 +1,10 @@
 <?php
 
 /* DB configuration*/
-$dbHost = '192.168.1.234';
+/*$dbHost = '192.168.1.234';
 $dbUser = 'budget';
 $dbPass = 'kbudget32';
-$dbName = 'budget_db';
+$dbName = 'budget_db';*/
 
 function validateCreateUserData($login, $email, $name, $surename, $password) {
    if(empty($login))
