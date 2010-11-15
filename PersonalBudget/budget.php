@@ -12,6 +12,8 @@ $budgets = getBudgetNames($user,$conn);
 $totalAmmount = getBudgetAmmount($user, $selectedBudget, $conn);
 $transactions = getBudgetTransactions($user, $selectedBudget, $conn);
 
+mysql_close($conn);
+
 ?>
 
 <!DOCTYPE HTML>
