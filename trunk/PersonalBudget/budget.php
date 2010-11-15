@@ -25,15 +25,17 @@ $transactions = getBudgetTransactions($user, $selectedBudget, $conn);
       <header>
        header
        </header>
+      <?php require 'navigation.php';?>
       <article>
          <?php
          
          echo "<ul id='listBudgets'>";
          foreach ($budgets as $budget) {
-            echo "<li><a class='budget' href='budget.php?budget=".$budget."'>".$budget."</a></li>";
+            if($budget === $selectedBudget)
+               echo "<li><span class='activeBudget'>".$budget."</span></li>";
+            else
+               echo "<li><a class='budget' href='budget.php?budget=".$budget."'>".$budget."</a></li>";
          }
-         echo "<li><a class='stdFolder' href='main.php'>Home</a></li>";
-         echo "<li><a class='stdFolder' href='logout.php'>Logout</a></li>";
          echo "</ul>";
          
          echo "estas en budget <strong>".$user."</strong>.<br />";

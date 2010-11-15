@@ -19,6 +19,7 @@ $budgets = getBudgetNames($user,$conn);
    </head>
    <body>
       <?php require 'header.php';?>
+      <?php require 'navigation.php';?>
       <article>
          <?php
          echo "estas en main <strong>".$user."</strong>.<br />";
@@ -28,7 +29,6 @@ $budgets = getBudgetNames($user,$conn);
          foreach ($budgets as $budget) {
             echo "<li><a class='budget' href=budget.php?budget=".$budget.">".$budget."</a></li>";
          }
-         echo "<li><a class='stdFolder' href='logout.php'>Logout</a></li>";
          echo "</ul>";
          
          // Show form errors

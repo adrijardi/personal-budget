@@ -43,11 +43,39 @@ fieldset {
    display: inline;
    list-style-type: none;
 }
-#listBudgets li a.budget {
+#listBudgets li a,span {
    display: inline-block;
    width: 88px;
    height: 43px;
-   background-image: url("../img/folder.png");
+   background-repeat: no-repeat;
+   color: #fff;
+   text-align: center;
+}
+#listBudgets li a.budget {
+   background-image: url("../images/folder.png");
+}
+#listBudgets li span.activeBudget {
+   background-image: url("../images/folderAct.png");
+}
+#listBudgets li a:hover {
+   background-image: url("../images/folderAct.png");
+}
+
+
+#listMenu {
+   margin-left: 0;
+   padding-left: 0;
+   list-style: none;
+}
+#listMenu li {
+   display: inline;
+   list-style-type: none;
+}
+#listMenu li a {
+   display: inline-block;
+   width: 88px;
+   height: 43px;
+   background-image: url("../images/folderLight.png");
    background-repeat: no-repeat;
    color: #fff;
    text-align: center;
